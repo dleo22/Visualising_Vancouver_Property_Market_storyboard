@@ -1,0 +1,51 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Project Title",
+    "section": "",
+    "text": "spec = FileAttachment(\"charts/placeHolder.json\").json()\nvegaEmbed = require(\"vega-embed@6\")\nchart = {\n  const el = document.querySelector(\"#chart\");\n  const result = await vegaEmbed(el, spec, {\n    renderer: \"svg\",\n    actions: false\n  });\n  return result.view;\n}\nscrollama_lib = require(\"scrollama\")\nscroller = {\n  const s = scrollama_lib();\n  s.setup({\n    step: \".new-trigger\",\n    offset: 0.5\n  }).onStepEnter(trigger =&gt; {\n    console.log(\"step\", trigger.index);\n    if (trigger.index === 0) chart?.signal(\"highlight\", null).run();\n    if (trigger.index === 1) chart?.signal(\"highlight\", \"nc\").run();\n    if (trigger.index === 2) chart?.signal(\"highlight\", \"ci\").run();\n  });\n  return s;\n}"
+  },
+  {
+    "objectID": "index.html#introduction",
+    "href": "index.html#introduction",
+    "title": "Project Title",
+    "section": "Introduction",
+    "text": "Introduction\nBriefly explain project and reason why you pick this project"
+  },
+  {
+    "objectID": "index.html#the-dataset",
+    "href": "index.html#the-dataset",
+    "title": "Project Title",
+    "section": "The Dataset",
+    "text": "The Dataset\nBriefly explain the dataset and critical attributes that are highlighted in this analysis"
+  },
+  {
+    "objectID": "index.html#dataset-information",
+    "href": "index.html#dataset-information",
+    "title": "Project Title",
+    "section": "Dataset Information",
+    "text": "Dataset Information\nDataset: {remove the brackets and fill in}\nSource: {remove the brackets and fill in}\nURL: {remove the brackets and fill in}\nLicense: {remove the brackets and fill in}\nDate Accessed: {remove the brackets and fill in}\nTime Period: {remove the brackets and fill in}\n\n\n\n\n\n\n\n\n\nAttribute Name\nAttribute Type\nData Semantics\nCardinality\n\n\n\n\nLatitude\nQuantitative (Sequential)\nSpatial coordinate (°), range: ~–65.6 to 85.1\n1,000\n\n\nLongitude\nQuantitative (Sequential)\nSpatial coordinate (°), range: ~–179.9 to 179.9\n1,000"
+  },
+  {
+    "objectID": "index.html#impact-and-utility",
+    "href": "index.html#impact-and-utility",
+    "title": "Project Title",
+    "section": "Impact and Utility",
+    "text": "Impact and Utility\nBriefly explain the purpose of the analysis.\nAddress the targeted audience and include at least 3 story questions.\n\n\n\n\nAs you scroll down, see the full chart.\n\n\n\n\nNow highlighting nc.\n\n\n\n\nNow highlighting ci."
+  },
+  {
+    "objectID": "index.html#limitations",
+    "href": "index.html#limitations",
+    "title": "Project Title",
+    "section": "Limitations",
+    "text": "Limitations"
+  },
+  {
+    "objectID": "index.html#references",
+    "href": "index.html#references",
+    "title": "Project Title",
+    "section": "References",
+    "text": "References"
+  }
+]

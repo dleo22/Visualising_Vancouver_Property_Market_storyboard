@@ -1,0 +1,356 @@
+---
+title: ""
+format:
+  closeread-html:
+    cr-style:
+      section-background-color: "#FFFFFF"
+      narrative-background-color-sidebar: "#FFFFFF"
+      narrative-text-color-sidebar: "#000000"
+      narrative-background-color-overlay: "#FFFFFF"
+      narrative-text-color-overlay: "#000000"
+      narrative-font-size: 26px
+---
+
+```{ojs}
+//| echo: false
+//| output: false
+
+// ============================================================================
+// 1. DATA FILE ATTACHMENTS
+// Point each specN at the Altair-exported JSON for that chart.
+// Add/remove lines here to match however many interactive charts you have.
+// ============================================================================
+spec1 = FileAttachment("charts/viz1_2020_chart.json").json()
+spec2 = FileAttachment("charts/viz1_2021_chart.json").json()
+spec3 = FileAttachment("charts/viz1_2022_chart.json").json()
+spec4 = FileAttachment("charts/viz1_2023_chart.json").json()
+spec5 = FileAttachment("charts/viz1_2024_chart.json").json()
+spec6 = FileAttachment("charts/viz1_2025_chart.json").json()
+spec7 = FileAttachment("charts/view2_chart.json").json()
+spec_dash = FileAttachment("charts/dashboard.json").json()
+
+vegaEmbed = require("vega-embed@6.24.0")
+
+// Wait for each Closeread target before embedding its chart.
+chart1 = {
+  let el;
+  while (!(el = document.querySelector("#chart1"))) {
+    await new Promise(r => setTimeout(r, 100));
+  }
+  el.innerHTML = "";
+  const result = await vegaEmbed(el, spec1, { renderer: "svg", actions: false });
+  return result.view;
+}
+
+chart2 = {
+  let el;
+  while (!(el = document.querySelector("#chart2"))) {
+    await new Promise(r => setTimeout(r, 100));
+  }
+  el.innerHTML = "";
+  const result = await vegaEmbed(el, spec2, { renderer: "svg", actions: false });
+  return result.view;
+}
+
+chart3 = {
+  let el;
+  while (!(el = document.querySelector("#chart3"))) {
+    await new Promise(r => setTimeout(r, 100));
+  }
+  el.innerHTML = "";
+  const result = await vegaEmbed(el, spec3, { renderer: "svg", actions: false });
+  return result.view;
+}
+
+chart4 = {
+  let el;
+  while (!(el = document.querySelector("#chart4"))) {
+    await new Promise(r => setTimeout(r, 100));
+  }
+  el.innerHTML = "";
+  const result = await vegaEmbed(el, spec4, { renderer: "svg", actions: false });
+  return result.view;
+}
+
+chart5 = {
+  let el;
+  while (!(el = document.querySelector("#chart5"))) {
+    await new Promise(r => setTimeout(r, 100));
+  }
+  el.innerHTML = "";
+  const result = await vegaEmbed(el, spec5, { renderer: "svg", actions: false });
+  return result.view;
+}
+
+chart6 = {
+  let el;
+  while (!(el = document.querySelector("#chart6"))) {
+    await new Promise(r => setTimeout(r, 100));
+  }
+  el.innerHTML = "";
+  const result = await vegaEmbed(el, spec6, { renderer: "svg", actions: false });
+  return result.view;
+}
+
+chart7 = {
+  let el;
+  while (!(el = document.querySelector("#chart7"))) {
+    await new Promise(r => setTimeout(r, 100));
+  }
+  el.innerHTML = "";
+  const result = await vegaEmbed(el, spec7, { renderer: "svg", actions: false });
+  return result.view;
+}
+
+dashboard = {
+  let el;
+  while (!(el = document.querySelector("#dashboard"))) {
+    await new Promise(r => setTimeout(r, 100));
+  }
+  el.innerHTML = "";
+  const result = await vegaEmbed(el, spec_dash, { renderer: "svg", actions: false });
+  return result.view;
+}
+```
+
+
+# **A Visualisation of Vancouver's Property Market:**
+
+Where you look in Vancouver changes the property values you encounter. Citywide averages hide these geographic differences, so we explore how location and property characteristics shape assessed values—and what those patterns mean for prospective homebuyers.
+
+This project uses the City of Vancouver’s Property Tax Report dataset to explore assessed property values and property characteristics from 2020 to 2025. The data supports comparisons of land and improvement values, taxes, and zoning classifications across properties and years.
+
+## The Dataset
+
+The City of Vancouver collects and maintains this dataset using BC Assessment records and internal administrative sources. The M1 report describes approximately 200,000 Vancouver properties over the six-year period from 2020 to 2025. Records include property identifiers, location information, legal and zoning classifications, assessed land and improvement values, construction and major improvement years, and taxes.
+
+**Location and classification**
+
+**PROPERTY_POSTAL_CODE:** The property's postal code, providing location information for geographic comparisons.
+
+**ZONING_CLASSIFICATION:** The property's zoning classification, allowing comparisons across categories of land use.
+
+**Assessed value**
+
+**CURRENT_LAND_VALUE:** The assessed value of the land for the current assessment year, used to compare the land component of property value.
+
+**CURRENT_IMPROVEMENT_VALUE:** The assessed value of buildings and other improvements for the current assessment year, capturing the component separate from land.
+
+## Dataset Information
+
+**Dataset:** Property Tax Report
+
+**Source:** City of Vancouver, using BC Assessment records and internal administrative sources
+
+**URL:** [Property Tax Report — City of Vancouver Open Data Portal](https://opendata.vancouver.ca/explore/dataset/property-tax-report/information/?sort=-tax_assessment_year&dataChart=eyJxdWVyaWVzIjpbeyJjb25maWciOnsiZGF0YXNldCI6InByb3BlcnR5LXRheC1yZXBvcnQiLCJvcHRpb25zIjp7InNvcnQiOiItdGF4X2Fzc2Vzc21lbnRfeWVhciJ9fSwiY2hhcnRzIjpbeyJhbGlnbk1vbnRoIjp0cnVlLCJ0eXBlIjoiY29sdW1uIiwiZnVuYyI6IkFWRyIsInlBeGlzIjoiY3VycmVudF9sYW5kX3ZhbHVlIiwic2NpZW50aWZpY0Rpc3BsYXkiOnRydWUsImNvbG9yIjoiIzAyNzlCMSJ9XSwieEF4aXMiOiJsZWdhbF90eXBlIiwibWF4cG9pbnRzIjo1MCwic29ydCI6IiJ9XSwidGltZXNjYWxlIjoiIiwiZGlzcGxheUxlZ2VuZCI6dHJ1ZSwiYWxpZ25Nb250aCI6dHJ1ZX0%3D)
+
+**License:** [Open Government Licence - Vancouver](https://opendata.vancouver.ca/pages/licence/)
+
+**Date Accessed:** 2025/10/01
+
+**Time Period:** 2020–2025 (As of the time)
+
+The following attributes and summary values are transcribed from M1. For categorical attributes, the final column gives the number of distinct values; for quantitative and temporal attributes, M1 reports ranges instead. These summaries describe the M1 dataset, not a newly calculated or filtered dataset. The reported major improvement year of 200 is flagged in M1 as a data-quality issue.
+
+| Attribute Name | Attribute Type | Data Semantics | Cardinality / Reported Range |
+| :--- | :--- | :--- | :--- |
+| **PID** | Categorical (Nominal) | Unique property identifier | 227324 distinct values |
+| **LEGAL_TYPE** | Categorical (Nominal) | Property legal type (e.g., STRATA, LAND, OTHER) | 3 distinct values |
+| **FOLIO** | Categorical (Nominal) | BC Assessment folio identifier | 227892 distinct values |
+| **LAND_COORDINATE** | Categorical (Nominal) | First 8 digits of BC Assessment's folio number | 94576 distinct values |
+| **ZONING_DISTRICT** | Categorical (Nominal) | Name of zoning district | 975 distinct values |
+| **ZONING_CLASSIFICATION** | Categorical (Nominal) | Name of zoning classification | 12 distinct values |
+| **LOT** | Categorical (Nominal) | Legal lot identifier | 1000 distinct values |
+| **PLAN** | Categorical (Nominal) | Legal plan identifier | 17693 distinct values |
+| **BLOCK** | Categorical (Nominal) | Legal block identifier | 1019 distinct values |
+| **DISTRICT_LOT** | Categorical (Nominal) | Legal district lot identifier | 410 distinct values |
+| **FROM_CIVIC_NUMBER** | Categorical (Nominal) | House number | 3101 distinct values |
+| **TO_CIVIC_NUMBER** | Categorical (Nominal) | Blank unless it is the last house number in a range | 8621 distinct values |
+| **STREET_NAME** | Categorical (Nominal) | Street name | 1005 distinct values |
+| **PROPERTY_POSTAL_CODE** | Categorical (Nominal) | Postal code | 15540 distinct values |
+| **NARRATIVE_LEGAL_LINE1** | Categorical (Nominal) | Describes a property for registration purposes | 228474 distinct values |
+| **NARRATIVE_LEGAL_LINE2** | Categorical (Nominal) | Describes a property for registration purposes | 52348 distinct values |
+| **NARRATIVE_LEGAL_LINE3** | Categorical (Nominal) | Describes a property for registration purposes | 18398 distinct values |
+| **NARRATIVE_LEGAL_LINE4** | Categorical (Nominal) | Describes a property for registration purposes | 3464 distinct values |
+| **NARRATIVE_LEGAL_LINE5** | Categorical (Nominal) | Describes a property for registration purposes | 2124 distinct values |
+| **CURRENT_LAND_VALUE** | Quantitative | Assessed value of land (current year) | Min = 0, Max = 3637869000 |
+| **CURRENT_IMPROVEMENT_VALUE** | Quantitative | Assessed value of improvements (current year) | Min = 0, Max = 934655000 |
+| **TAX_ASSESSMENT_YEAR** | Temporal | Year in effect for Current_Land_Value, Current_Improvement_Value, and Tax_Levy | Min = 2020, Max = 2025 |
+| **PREVIOUS_LAND_VALUE** | Quantitative | Assessed value of land (previous year) | Min = 0, Max = 3606388000 |
+| **PREVIOUS_IMPROVEMENT_VALUE** | Quantitative | Assessed value of improvements (previous year) | Min = 0, Max = 934655000 |
+| **YEAR_BUILT** | Temporal | Year that the property was built | \[1800,2022\], step:irregular (per property) |
+| **BIG_IMPROVEMENT_YEAR** | Temporal | Year of major improvement to the property | \[200,2022\], step:irregular (per property) |
+| **TAX_LEVY** | Quantitative | Total taxes printed on the most recent tax notice | Min = 0, Max = 9760300 |
+| **NEIGHBOURHOOD_CODE** | Categorical (Nominal) | 3-digit number assigned by BCA identifying the neighbourhood for the folio | 30 distinct values |
+| **REPORT_YEAR** | Temporal | Year when data was extracted from source | Min = 2020, Max = 2025 |
+
+## Impact and Utility
+
+Motivated by our interest as soon-to-be graduates and young professionals hoping to live and work in Vancouver, this project helps readers explore differences in assessed property values and characteristics across the city. It provides context for people beginning to investigate Vancouver housing.
+
+To guide the reader through the data, this story addresses the following questions:
+
+### How does year-on-year assessed land-value change vary across Vancouver’s regions?
+
+Compare where increases are widespread and how average changes differ by region.
+
+<!--
+  ============================================================================
+  SCROLLYTELLING SECTION 1
+  Six yearly charts in chronological order, 2020–2025.
+  Each paragraph below = one scroll step. Keep them short (2-4 sentences).
+  The [@cr-plot1] tag ties a paragraph to the sticky chart; add {scale-by=...
+  pan-to="X%,Y%"} if you want that step to also pan/zoom the chart.
+  ============================================================================
+-->
+## Findings
+### Dominic - **Region and Year-on-Year Land Value Change in Vancouver**
+
+#### Research question
+
+**Does region affect year-on-year changes in assessed land value in Vancouver?** -  This investigation explores whether increases and decreases in land value follow geographic patterns and whether the average annual change differs across regions. Here, “affect” is investigated as an association: these visualizations can reveal regional differences, but cannot establish that region causes those differences.
+
+The first visualization explores average year-on-year changes in assessed land value across Vancouver without grouping properties by region. Comparing years helps identify rough geographic trends. The dashboard then introduces region classifications and brings together two perspectives: how widespread increases are within each geographic bin, and the average change in value within each region. The intended focus is assessed land value, rather than sale prices.
+
+### Preliminary investigation
+
+The first visualization provides a geographic starting point for the regional comparison. Properties are grouped into rectangular bins using latitude and longitude, and colour represents the average year-on-year change in assessed land value within each bin. Dark purple and black indicate decreases, while orange and yellow indicate increases. This allows readers to explore spatial patterns before introducing region boundaries.
+
+White gaps represent bins with no plotted observations, rather than zero change in land value. Some may correspond to areas without properties, while gaps that appear only in certain years may reflect missing records or exclusions during data preparation. The exported charts contain fewer observations in 2020 and 2022 than in the other years, so differences in coverage should be considered when comparing the maps.
+
+:::{.cr-section}
+
+**2020** — Assessed land values declined across most regions, with the largest average decreases in Victoria-Fraserview, Hastings-Sunrise, and Sunset; Kerrisdale stood out with a modest average increase. Empty squares in the west, suggest uneven data coverage and may reflect missing records. [@cr-plot1]
+
+**2021** — Every region recorded an average increase, led by Dunbar-Southlands, Victoria-Fraserview, and West Point Grey, while Downtown and the West End saw comparatively small gains. [@cr-plot2]
+
+**2022** — Gains remained widespread, with Victoria-Fraserview, Hastings-Sunrise, and Sunset recording the largest regional average increases, while Downtown and the West End continued to show smaller gains. Empty squares are again prominent in the west and south, potentially indicating missing records. [@cr-plot3]
+
+**2023** — An east–west contrast emerged: Victoria-Fraserview, Hastings-Sunrise, and Killarney maintained strong average gains, while Dunbar-Southlands shifted to an average decline and Arbutus Ridge saw only a small increase. [@cr-plot4]
+
+**2024** — Dunbar-Southlands rebounded to the largest regional average increase, followed by Victoria-Fraserview and Sunset, while Downtown and the West End recorded small average declines. [@cr-plot5]
+
+**2025** — Many regions returned to average declines, particularly Downtown, Sunset, and Riley Park, while Dunbar-Southlands, Kerrisdale, and Arbutus Ridge retained gains. Across the six years, widespread declines in 2020 gave way to broad gains in 2021–2022, more uneven regional changes in 2023–2024, and renewed declines across many regions in 2025. [@cr-plot6]
+
+:::{#cr-plot1 .yearly-chart}
+<div id="chart1"></div>
+:::
+
+:::{#cr-plot2 .yearly-chart}
+<div id="chart2"></div>
+:::
+
+:::{#cr-plot3 .yearly-chart}
+<div id="chart3"></div>
+:::
+
+:::{#cr-plot4 .yearly-chart}
+<div id="chart4"></div>
+:::
+
+:::{#cr-plot5 .yearly-chart}
+<div id="chart5"></div>
+:::
+
+:::{#cr-plot6 .yearly-chart}
+<div id="chart6"></div>
+:::
+:::
+
+<!--
+  ============================================================================
+  SCROLLYTELLING SECTION 2
+  Same arc, second chart. Adjust step count/pacing independently — sections
+  don't need the same number of steps as each other.
+  ============================================================================
+-->
+## Individual Dashboard
+
+This dashboard compares **how widespread annual land-value increases are** with **how large the average change is in each region**. The left map shows the fraction of properties in each geographic bin whose assessed land value increased from the previous year, while the right bar chart ranks regions by their average change in Canadian dollars.
+
+Selecting a year from the dropdown is an **input-binding interaction** that filters and links both the map and regional bar chart to the same report year. This lets readers inspect whether areas with widespread increases also belong to regions with large average gains, and whether these geographic patterns persist across 2020–2025.
+
+:::{.cr-section}
+
+**Inspect the prevalence of increases.** Use the year dropdown to update both views together. Greener map squares indicate a larger fraction of properties with a positive annual change; redder squares indicate a smaller fraction. Hover over a square to inspect its property count and percentage with increases. Properties with unchanged values are also counted as non-positive, so red does not necessarily mean every property declined. [@cr-plot7]
+
+**Compare prevalence with magnitude.** Read the sorted bars to identify regions with the largest average gains or losses in the selected year, then compare their locations with the map. A high fraction of increases does not necessarily imply a large average gain: many small increases can coexist with a few large decreases. Change the dropdown year to investigate how this relationship evolves; the map uses geographic bins rather than exact region boundaries. [@cr-plot7]
+
+:::{#cr-plot7}
+<div id="chart7"></div>
+:::
+:::
+
+<!--
+  Optional: static supporting views (non-scrollytelling charts/tables) can
+  go here between sections, e.g. a correlation matrix or a plain <div id="chart3">
+  bound the same way chart1/chart7 are, if you need a static chart that
+  doesn't respond to scroll signals.
+-->
+
+## Dashboard: Where does your budget fit?
+
+Our project asks: **How does location affect property prices in Vancouver?** For a prospective homebuyer, this becomes a practical question: **Which parts of Vancouver contain properties in my budget range?** The dashboard connects these questions by showing how the geographic distribution of properties changes as the selected value range changes. It turns the project's exploration of location and value into a tool for identifying areas to investigate further.
+
+The dashboard uses **2025 assessed land values**, which capture only the land component of a property's assessment. These values exclude buildings and other improvements and are not asking or sale prices. The budget controls therefore support an initial comparison of areas by land value, rather than confirming that a home can be purchased within a given total budget. The records also represent assessed properties, not homes currently listed for sale.
+
+:::{.column-screen .team-dashboard-container}
+<div id="dashboard"></div>
+:::
+
+### What the geographic pattern tells us
+
+For assessed land values between **$1 million and $2 million**, properties are more abundant in the **east** of Vancouver. Moving the range to **$2 million–$3 million** shifts the main concentration to the **west**, with a smaller but notable cluster around the **Downtown waterfront**. This change illustrates why a citywide average cannot fully describe a buyer's search: different value ranges lead to different geographic concentrations.
+
+For prospective buyers, the pattern provides a starting point for deciding where to focus further research. The eastern concentration offers more properties to investigate in the lower of these two land-value bands, while the western concentration becomes more prominent in the higher band. The waterfront cluster also shows that the pattern is more nuanced than a simple east–west divide: pockets of higher-value land occur within Downtown as well.
+
+These patterns connect the dashboard to the overall story by showing an association between location and property value. They do not establish that location alone causes the differences; property size, type, and other characteristics may also contribute. A larger number of matching properties indicates greater representation in this dataset, rather than greater availability for purchase.
+
+### How to use the dashboard
+
+1. **Set a value range.** Adjust **Min Land Value (MM)** and **Max Land Value (MM)** beneath the charts. “MM” means millions of Canadian dollars: select 1 and 2 to explore the $1 million–$2 million band. Keep the minimum at or below the maximum. To explore everything up to a ceiling, set the minimum to 0.
+
+2. **Explore the map.** The map displays properties within the selected range, grouped into geographic bins. Circle colour identifies the region, and larger circles represent more matching properties. Hover over a circle to see its region, property count, and average land value. Each circle summarizes a group of records rather than marking an individual home.
+
+3. **Select an area.** Click and drag on the map to draw a rectangular selection. The regional bar chart and budget-share pie chart update to summarize properties within that area. Double-click the map to clear the selection and return to the full geographic view.
+
+4. **Compare regional averages.** The bar chart shows average assessed land value by region within the selected area. These averages include properties both inside and outside the chosen value range, providing context for the budget-filtered map. Click a bar to highlight the corresponding region on the map; double-click the bar chart to clear the highlight. Highlighting a region does not filter the pie chart.
+
+5. **Check the share within range.** The pie chart compares properties **Within Budget** and **Outside Budget** in the selected area. Hover over a slice to see the count and percentage. This reveals whether matching properties represent a large or small share of the area's assessed properties, including records outside the range that are hidden on the map.
+
+6. **Compare the two value bands.** Start with $1 million–$2 million, then change the sliders to $2 million–$3 million. Clear the map selection to compare the citywide pattern, or keep the same selected area to see how its budget fit changes. Look for the shift from the eastern concentration toward the west and the smaller Downtown waterfront cluster.
+
+
+## Conclusion
+
+As a team, the views we have created align well with our general goal of shedding insight into Vancouver's housing market. With Dominic's view on how location affects land value, Adrian's view on how location affects tax levy, Sai's views on how zoning classification affects land values, and Veer's views on how years since rennovation affect land value, the resulting project covers a wide variety of different factors which affect how properties are valued in Vancouver.
+
+In general, it is clear that the west side of Vancouver (Kerrisdale, Dunbar Southlands etc.) have higher land values, higher tax levies, and the most expensive improvements (home value rather than land value). There are anomalies in the data such as in Downtown along the waterfront, which indicates that more factors not included in our dataset, such as a home's view, its terrain & elevation, and others affect property values. More research needs to be conducted to include this factors in our investigation.
+
+Overall, this project has proved insightful with each member focusing on a key aspect of property values, and the end-product is 8 views which we are happy to present to the general public and to first-time homebuyers.
+## Limitations
+
+### What this project can answer
+
+This project explores how location and the other property characteristics examined in our findings relate to assessed property values in Vancouver. Together, the visualizations identify patterns across areas and value ranges, highlighting factors that prospective homebuyers can consider when comparing homes and neighbourhoods. The dashboard supports this exploration by showing where properties within a selected assessed land-value range are concentrated.
+
+These findings provide a starting point for a home search. They help readers compare areas, recognize variation across the city, and identify questions to investigate further. They show associations between the variables examined and assessed values, but do not establish that any one factor causes a price difference or predict the price of an individual home.
+
+### Assessment values are not sale prices
+
+The project uses BC Assessment data, which is not directly linked to the actual sale prices of homes in this analysis. An assessed value therefore cannot tell us what a buyer would pay for a particular property. In addition, the dashboard filters **assessed land value**, which excludes the value of buildings and other improvements. A property falling within the dashboard's selected range does not establish that its full purchase price would fit the same budget, and the dataset does not indicate whether it is currently for sale.
+
+The trade-off is that assessment data gives us a common basis for comparing many properties across Vancouver, while limiting how directly those comparisons translate into purchasing decisions. The dashboard is useful for exploring areas; current listings and sale information would be needed to evaluate specific homes and their purchase prices.
+
+### Geographic summaries hide individual differences
+
+The maps group properties into geographic bins, and the regional charts summarize values using averages. These summaries make broad patterns easier to see, but can conceal substantial differences between properties within the same area. A regional average may be influenced by a small number of high-value properties or by differences in the mix of property types and sizes. It does not describe every home in that region or isolate the contribution of location from other characteristics.
+
+The trade-off is between a readable overview and detail about individual properties. Grouping records makes citywide comparisons manageable, but buyers should treat the resulting patterns as guidance for further investigation rather than as a valuation of a particular home. Property-level comparisons that account for size, type, and condition would be needed to assess how closely an individual home matches the area's overall pattern.
+
+## Reference
+
+* **TODO: Source Organization**
+  * **Dataset:** TODO
+  * **Description:** TODO
+  * **Access Link:** TODO
