@@ -204,33 +204,33 @@ Compare where increases are widespread and how average changes differ by region.
   ============================================================================
 -->
 ## Findings
-### Dominic - **Region and Year-on-Year Land Value Change in Vancouver**
+### Dominic - **Region Affects Year-on-year change in Land Valuee**
 
 #### Research question
 
-**Does region affect year-on-year changes in assessed land value in Vancouver?** -  This investigation explores whether increases and decreases in land value follow geographic patterns and whether the average annual change differs across regions. Here, “affect” is investigated as an association: these visualizations can reveal regional differences, but cannot establish that region causes those differences.
+**Does location affect year-on-year changes in assessed land value in Vancouver?** -  This investigation explores whether increases and decreases in land value follow geographic patterns and whether the average annual change differs across regions. Here, “affect” is investigated as an association: these visualizations can reveal regional differences, but cannot establish that region causes those differences.
 
-The first visualization explores average year-on-year changes in assessed land value across Vancouver without grouping properties by region. Comparing years helps identify rough geographic trends. The dashboard then introduces region classifications and brings together two perspectives: how widespread increases are within each geographic bin, and the average change in value within each region. The intended focus is assessed land value, rather than sale prices.
+The first visualization explores average year-on-year changes in assessed land value across Vancouver without grouping properties by specific neighbourhood. Comparing years helps identify rough geographic trends. The dashboard then introduces region classifications and brings together two perspectives: how widespread increases are within each geographic bin, and the average change in value within each region. The intended focus is assessed land value, rather than sale prices.
 
 ### Preliminary investigation
 
-The first visualization provides a geographic starting point for the regional comparison. Properties are grouped into rectangular bins using latitude and longitude, and colour represents the average year-on-year change in assessed land value within each bin. Dark purple and black indicate decreases, while orange and yellow indicate increases. This allows readers to explore spatial patterns before introducing region boundaries.
+The first visualization provides a geographic starting point for the geo-spatial comparison. Properties are grouped into rectangular bins using latitude and longitude, and colour represents the average year-on-year change in assessed land value within each bin. Dark purple and black indicate decreases, while orange and yellow indicate increases. This allows readers to explore spatial patterns before introducing region boundaries.
 
 White gaps represent bins with no plotted observations, rather than zero change in land value. Some may correspond to areas without properties, while gaps that appear only in certain years may reflect missing records or exclusions during data preparation. The exported charts contain fewer observations in 2020 and 2022 than in the other years, so differences in coverage should be considered when comparing the maps.
 
 :::{.cr-section}
 
-**2020** — Assessed land values declined across most regions, with the largest average decreases in Victoria-Fraserview, Hastings-Sunrise, and Sunset; Kerrisdale stood out with a modest average increase. Empty squares in the west, suggest uneven data coverage and may reflect missing records. [@cr-plot1]
+**2020** — Assessed land values declined across Vancouver, with the largest average decreases seen in the SE and E; Only W saw some gains. Empty squares in the west, suggest uneven data coverage and may reflect missing records. [@cr-plot1]
 
-**2021** — Every region recorded an average increase, led by Dunbar-Southlands, Victoria-Fraserview, and West Point Grey, while Downtown and the West End saw comparatively small gains. [@cr-plot2]
+**2021** — Almost every region recorded an average increase, with most prominent gains clustered in the West. Moderate gains were also seen in the SE and E, though the North (Downtown area) saw little gain, and even continued to decline. [@cr-plot2]
 
-**2022** — Gains remained widespread, with Victoria-Fraserview, Hastings-Sunrise, and Sunset recording the largest regional average increases, while Downtown and the West End continued to show smaller gains. Empty squares are again prominent in the west and south, potentially indicating missing records. [@cr-plot3]
+**2022** — Gains remained widespread, with E and SE recording the largest regional average increases, while the N continued to show smaller gains. Empty squares are again prominent in the west and south, potentially indicating missing records. [@cr-plot3]
 
-**2023** — An east–west contrast emerged: Victoria-Fraserview, Hastings-Sunrise, and Killarney maintained strong average gains, while Dunbar-Southlands shifted to an average decline and Arbutus Ridge saw only a small increase. [@cr-plot4]
+**2023** — An east–west contrast emerged: properties in the east maintained strong average gains, while W saw a noticible decline. [@cr-plot4]
 
-**2024** — Dunbar-Southlands rebounded to the largest regional average increase, followed by Victoria-Fraserview and Sunset, while Downtown and the West End recorded small average declines. [@cr-plot5]
+**2024** — Vancouver W rebounded to the largest regional average increase, followed by SE and parts of E, while Downtown recorded small average declines. [@cr-plot5]
 
-**2025** — Many regions returned to average declines, particularly Downtown, Sunset, and Riley Park, while Dunbar-Southlands, Kerrisdale, and Arbutus Ridge retained gains. Across the six years, widespread declines in 2020 gave way to broad gains in 2021–2022, more uneven regional changes in 2023–2024, and renewed declines across many regions in 2025. [@cr-plot6]
+**2025** — Many regions returned to average declines, particularly Downtown, South and Central regions. Interestingly, properties in the West continued to increase. Across the six years, widespread declines in 2020 gave way to broad gains in 2021–2022, more uneven regional changes in 2023–2024, and renewed declines across many regions in 2025. [@cr-plot6]
 
 :::{#cr-plot1 .yearly-chart}
 <div id="chart1"></div>
@@ -348,9 +348,3 @@ The maps group properties into geographic bins, and the regional charts summariz
 
 The trade-off is between a readable overview and detail about individual properties. Grouping records makes citywide comparisons manageable, but buyers should treat the resulting patterns as guidance for further investigation rather than as a valuation of a particular home. Property-level comparisons that account for size, type, and condition would be needed to assess how closely an individual home matches the area's overall pattern.
 
-## Reference
-
-* **TODO: Source Organization**
-  * **Dataset:** TODO
-  * **Description:** TODO
-  * **Access Link:** TODO

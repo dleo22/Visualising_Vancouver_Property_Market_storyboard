@@ -132,12 +132,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <!-- user-provided yaml closeread style options -->
       <style>
         :root {
-          --cr-narrative-text-color-sidebar: #000000;
---cr-section-background-color: #FFFFFF;
+          --cr-narrative-background-color-sidebar: #FFFFFF;
 --cr-narrative-text-color-overlay: #000000;
---cr-narrative-background-color-sidebar: #FFFFFF;
---cr-narrative-background-color-overlay: #FFFFFF;
+--cr-narrative-text-color-sidebar: #000000;
+--cr-section-background-color: #FFFFFF;
 --cr-narrative-font-size: 26px;
+--cr-narrative-background-color-overlay: #FFFFFF;
         }
       </style>
     
@@ -593,48 +593,48 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="findings" class="level2">
 <h2 class="anchored" data-anchor-id="findings">Findings</h2>
-<section id="dominic---region-and-year-on-year-land-value-change-in-vancouver" class="level3">
-<h3 class="anchored" data-anchor-id="dominic---region-and-year-on-year-land-value-change-in-vancouver">Dominic - <strong>Region and Year-on-Year Land Value Change in Vancouver</strong></h3>
+<section id="dominic---region-affects-year-on-year-change-in-land-valuee" class="level3">
+<h3 class="anchored" data-anchor-id="dominic---region-affects-year-on-year-change-in-land-valuee">Dominic - <strong>Region Affects Year-on-year change in Land Valuee</strong></h3>
 <section id="research-question" class="level4">
 <h4 class="anchored" data-anchor-id="research-question">Research question</h4>
-<p><strong>Does region affect year-on-year changes in assessed land value in Vancouver?</strong> - This investigation explores whether increases and decreases in land value follow geographic patterns and whether the average annual change differs across regions. Here, “affect” is investigated as an association: these visualizations can reveal regional differences, but cannot establish that region causes those differences.</p>
-<p>The first visualization explores average year-on-year changes in assessed land value across Vancouver without grouping properties by region. Comparing years helps identify rough geographic trends. The dashboard then introduces region classifications and brings together two perspectives: how widespread increases are within each geographic bin, and the average change in value within each region. The intended focus is assessed land value, rather than sale prices.</p>
+<p><strong>Does location affect year-on-year changes in assessed land value in Vancouver?</strong> - This investigation explores whether increases and decreases in land value follow geographic patterns and whether the average annual change differs across regions. Here, “affect” is investigated as an association: these visualizations can reveal regional differences, but cannot establish that region causes those differences.</p>
+<p>The first visualization explores average year-on-year changes in assessed land value across Vancouver without grouping properties by specific neighbourhood. Comparing years helps identify rough geographic trends. The dashboard then introduces region classifications and brings together two perspectives: how widespread increases are within each geographic bin, and the average change in value within each region. The intended focus is assessed land value, rather than sale prices.</p>
 </section>
 </section>
 <section id="preliminary-investigation" class="level3">
 <h3 class="anchored" data-anchor-id="preliminary-investigation">Preliminary investigation</h3>
-<p>The first visualization provides a geographic starting point for the regional comparison. Properties are grouped into rectangular bins using latitude and longitude, and colour represents the average year-on-year change in assessed land value within each bin. Dark purple and black indicate decreases, while orange and yellow indicate increases. This allows readers to explore spatial patterns before introducing region boundaries.</p>
+<p>The first visualization provides a geographic starting point for the geo-spatial comparison. Properties are grouped into rectangular bins using latitude and longitude, and colour represents the average year-on-year change in assessed land value within each bin. Dark purple and black indicate decreases, while orange and yellow indicate increases. This allows readers to explore spatial patterns before introducing region boundaries.</p>
 <p>White gaps represent bins with no plotted observations, rather than zero change in land value. Some may correspond to areas without properties, while gaps that appear only in certain years may reflect missing records or exclusions during data preparation. The exported charts contain fewer observations in 2020 and 2022 than in the other years, so differences in coverage should be considered when comparing the maps.</p>
 <div class="cr-section cr-column-screen sidebar-left">
 <div class="narrative-col">
 <div class="trigger new-trigger" data-focus-on="cr-plot1">
 <div class="narrative">
-<p><strong>2020</strong> — Assessed land values declined across most regions, with the largest average decreases in Victoria-Fraserview, Hastings-Sunrise, and Sunset; Kerrisdale stood out with a modest average increase. Empty squares in the west, suggest uneven data coverage and may reflect missing records.</p>
+<p><strong>2020</strong> — Assessed land values declined across Vancouver, with the largest average decreases seen in the SE and E; Only W saw some gains. Empty squares in the west, suggest uneven data coverage and may reflect missing records.</p>
 </div>
 </div>
 <div class="trigger new-trigger" data-focus-on="cr-plot2">
 <div class="narrative">
-<p><strong>2021</strong> — Every region recorded an average increase, led by Dunbar-Southlands, Victoria-Fraserview, and West Point Grey, while Downtown and the West End saw comparatively small gains.</p>
+<p><strong>2021</strong> — Almost every region recorded an average increase, with most prominent gains clustered in the West. Moderate gains were also seen in the SE and E, though the North (Downtown area) saw little gain, and even continued to decline.</p>
 </div>
 </div>
 <div class="trigger new-trigger" data-focus-on="cr-plot3">
 <div class="narrative">
-<p><strong>2022</strong> — Gains remained widespread, with Victoria-Fraserview, Hastings-Sunrise, and Sunset recording the largest regional average increases, while Downtown and the West End continued to show smaller gains. Empty squares are again prominent in the west and south, potentially indicating missing records.</p>
+<p><strong>2022</strong> — Gains remained widespread, with E and SE recording the largest regional average increases, while the N continued to show smaller gains. Empty squares are again prominent in the west and south, potentially indicating missing records.</p>
 </div>
 </div>
 <div class="trigger new-trigger" data-focus-on="cr-plot4">
 <div class="narrative">
-<p><strong>2023</strong> — An east–west contrast emerged: Victoria-Fraserview, Hastings-Sunrise, and Killarney maintained strong average gains, while Dunbar-Southlands shifted to an average decline and Arbutus Ridge saw only a small increase.</p>
+<p><strong>2023</strong> — An east–west contrast emerged: properties in the east maintained strong average gains, while W saw a noticible decline.</p>
 </div>
 </div>
 <div class="trigger new-trigger" data-focus-on="cr-plot5">
 <div class="narrative">
-<p><strong>2024</strong> — Dunbar-Southlands rebounded to the largest regional average increase, followed by Victoria-Fraserview and Sunset, while Downtown and the West End recorded small average declines.</p>
+<p><strong>2024</strong> — Vancouver W rebounded to the largest regional average increase, followed by SE and parts of E, while Downtown recorded small average declines.</p>
 </div>
 </div>
 <div class="trigger new-trigger" data-focus-on="cr-plot6">
 <div class="narrative">
-<p><strong>2025</strong> — Many regions returned to average declines, particularly Downtown, Sunset, and Riley Park, while Dunbar-Southlands, Kerrisdale, and Arbutus Ridge retained gains. Across the six years, widespread declines in 2020 gave way to broad gains in 2021–2022, more uneven regional changes in 2023–2024, and renewed declines across many regions in 2025.</p>
+<p><strong>2025</strong> — Many regions returned to average declines, particularly Downtown, South and Central regions. Interestingly, properties in the West continued to increase. Across the six years, widespread declines in 2020 gave way to broad gains in 2021–2022, more uneven regional changes in 2023–2024, and renewed declines across many regions in 2025.</p>
 </div>
 </div>
 </div>
@@ -762,20 +762,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 class="anchored" data-anchor-id="geographic-summaries-hide-individual-differences">Geographic summaries hide individual differences</h3>
 <p>The maps group properties into geographic bins, and the regional charts summarize values using averages. These summaries make broad patterns easier to see, but can conceal substantial differences between properties within the same area. A regional average may be influenced by a small number of high-value properties or by differences in the mix of property types and sizes. It does not describe every home in that region or isolate the contribution of location from other characteristics.</p>
 <p>The trade-off is between a readable overview and detail about individual properties. Grouping records makes citywide comparisons manageable, but buyers should treat the resulting patterns as guidance for further investigation rather than as a valuation of a particular home. Property-level comparisons that account for size, type, and condition would be needed to assess how closely an individual home matches the area’s overall pattern.</p>
-</section>
-</section>
-<section id="reference" class="level2">
-<h2 class="anchored" data-anchor-id="reference">Reference</h2>
-<ul>
-<li><strong>TODO: Source Organization</strong>
-<ul>
-<li><strong>Dataset:</strong> TODO</li>
-<li><strong>Description:</strong> TODO</li>
-<li><strong>Access Link:</strong> TODO</li>
-</ul></li>
-</ul>
 
 
+</section>
 </section>
 </section>
 
