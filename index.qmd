@@ -204,7 +204,7 @@ Compare where increases are widespread and how average changes differ by region.
   ============================================================================
 -->
 ## Findings
-### Dominic - **Region Affects Year-on-year change in Land Valuee**
+### Dominic - **Region Affects Year-on-year change in Land Value**
 
 #### Research question
 
